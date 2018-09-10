@@ -1,6 +1,6 @@
 from game.game import Game
 from parser.parser import Parser
-from analyzer import Analyzer 
+from analyzer.analyzer import Analyzer 
 import sys
 
 parser = Parser(sys.argv[1])
