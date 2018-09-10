@@ -3,9 +3,11 @@ import math
 class Analyzer:
 
     def __init__(self, game):
+        print("Analyzer")
         self.game           = game
+        print("Analyzer2")
         self.play_on_cycles = game.get_play_on_cycles()
-        
+        print("Analyzer3")
         self.pass_status    = 0 # 0 --> no kick,  1 --> one kicker detected
         self.pass_last_kicker = -1
         self.pass_last_kick_cycle = -1

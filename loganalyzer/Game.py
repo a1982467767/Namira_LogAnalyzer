@@ -1,8 +1,9 @@
-from .team import Team
+from loganalyzer.team import Team
 
 class Game:
     
     def __init__(self, parser):
+        print("Geam")
         self.parser = parser
         self.right_goal   = 0
         self.left_goal    = 0

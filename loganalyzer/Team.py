@@ -1,9 +1,10 @@
-from .agent import Agent
+from loganalyzer.agent import Agent
 
 
 class Team:
     
     def __init__(self,name,side):
+        print("Team")
         self.name   = name
         self.side   = side
         self.agents = self.generate_agents()

@@ -39,6 +39,7 @@ def count_element_in_pos(elements,positions=default_positions): # get 2  array o
 
 class Parser:
     def __init__(self,path):
+        print("Parser")
         self.path = path
         self.set_data_rcg()
         self.set_data_rcl()
