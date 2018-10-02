@@ -1,9 +1,8 @@
-from loganalyzer.team import Team
+from loganalyzer.Team import Team
 
 class Game:
     
     def __init__(self, parser):
-        print("Geam")
         self.parser = parser
         self.right_goal   = 0
         self.left_goal    = 0
@@ -84,17 +83,20 @@ class Game:
         m = 0
         kickers = []
         for agent in (self.left_team.agents+self.right_team.agents):
-            if(agent.data[cycle]['last_tackle_cycle']>m or agent.data[cycle]['lastkickCycle']>m ):
-                if(agent.data[cycle]['last_tackle_cycle'] > agent.data[cycle]['lastkickCycle']):
-                    m=agent.data[cycle]['last_tackle_cycle']
-                else:
-                    m=agent.data[cycle]['lastkickCycle']
-                kickers.clear()
-                kickers.append(agent)
-            
-            elif(agent.data[cycle]['last_tackle_cycle'] == m or agent.data[cycle]['lastkickCycle'] == m):
-                kickers.append(agent)
-                
+            if cycle in agent.data:
+                if(agent.data[cycle]['last_tackle_cycle']>m or agent.data[cycle]['lastkickCycle']>m ):
+                    if(agent.data[cycle]['last_tackle_cycle'] > agent.data[cycle]['lastkickCycle']):
+                        m=agent.data[cycle]['last_tackle_cycle']
+                    else:
+                        m=agent.data[cycle]['lastkickCycle']
+                    kickers.clear()
+                    kickers.append(agent)
+
+                elif(agent.data[cycle]['last_tackle_cycle'] == m or agent.data[cycle]['lastkickCycle'] == m):
+                    kickers.append(agent)
+            else:
+                print(cycle)
+
         return kickers   
     
     def get_play_on_cycles(self):

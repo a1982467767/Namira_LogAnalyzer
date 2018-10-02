@@ -2,11 +2,8 @@ import math
 class Analyzer:
 
     def __init__(self, game):
-        print("Analyzer")
         self.game           = game
-        print("Analyzer2")
         self.play_on_cycles = game.get_play_on_cycles()
-        print("Analyzer3")
         self.pass_status    = 0 # 0 --> no kick,  1 --> one kicker detected
         self.pass_last_kicker = -1
         self.pass_last_kick_cycle = -1
@@ -19,7 +16,7 @@ class Analyzer:
         self.on_target_shoot_r = 0
         self.off_target_shoot_r = 0
         self.possesion_r = 0
-        self.used_stamina_l = 0
+        self.used_stamina_r = 0
         #left TEAM
         self.pass_l = 0
         self.intercept_l = 0
@@ -46,22 +43,23 @@ class Analyzer:
                 
       
     def check_pass(self, key):
+        print(key)
         if(key not in self.play_on_cycles):
             self.pass_status = 0
             
         elif(self.pass_status == 0): 
-            self.pass_last_kicker = game.get_last_kickers(key)[0]
+            self.pass_last_kicker = self.game.get_last_kickers(key)[0]
             self.pass_last_kick_cycle = key
             self.pass_status      = 1
             
         elif(self.pass_status == 1 ):
             
-            if(self.pass_last_kicker == game.get_last_kickers(key)[0] and game.get_last_kickers(key)[0].data[key]['is_kicked']):
+            if(self.pass_last_kicker == self.game.get_last_kickers(key)[0] and self.game.get_last_kickers(key)[0].data['is_kicked']):
                 self.pass_status = 1
                 self.pass_last_kick_cycle = key
 
                 
-            elif(self.pass_last_kicker != game.get_last_kickers(key)[0]  and  self.pass_last_kicker.team == game.get_last_kickers(key)[0].team  ):
+            elif(self.pass_last_kicker != self.game.get_last_kickers(key)[0]  and  self.pass_last_kicker.team == self.game.get_last_kickers(key)[0].team  ):
                 self.i = self.i+1
                 print(self.i," Pass Detected" , self.pass_last_kick_cycle, self.pass_last_kicker.number, self.pass_last_kicker.team.name)
                 
@@ -71,18 +69,18 @@ class Analyzer:
                     self.pass_l += 1
                
                 self.pass_status = 1
-                self.pass_last_kicker = game.get_last_kickers(key)[0]
+                self.pass_last_kicker = self.game.get_last_kickers(key)[0]
                 self.pass_last_kick_cycle = key
 
                 
-            elif(self.pass_last_kicker.team != game.get_last_kickers(key)[0].team):
+            elif(self.pass_last_kicker.team != self.game.get_last_kickers(key)[0].team):
                 #print("Pass intercept", self.pass_last_kick_cycle, self.game.get_last_kickers(key)[0].number, self.game.get_last_kickers(key)[0].team.name)
                 if(self.game.get_last_kickers(key)[0].team.name == self.game.right_team.name):
                     self.intercept_r += 1
                 else:
                     self.intercept_l += 1
                 self.pass_status = 1
-                self.pass_last_kicker = game.get_last_kickers(key)[0]
+                self.pass_last_kicker = self.game.get_last_kickers(key)[0]
                 self.pass_last_kick_cycle = key
        
             

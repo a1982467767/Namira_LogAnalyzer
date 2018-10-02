@@ -4,7 +4,6 @@ from math import degrees,atan
 class Agent:
     
     def __init__(self, number, team):
-        print("Agent")
         self.team            = team
         self.number          = number
         self.kick_count       = 0
