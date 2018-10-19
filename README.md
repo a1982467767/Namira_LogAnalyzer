@@ -5,12 +5,12 @@ a Tournament Planning and Analyzer Software.
 ## Getting Started
 
 You just need python 3.x! running on any OS. You can download and install python 3.x from [here](https://www.python.org/downloads/).
-
-### How to Use?
-
-For using this package just download the source and place it on your workplace then import it on any python file!
-
-
+### Installation
+    python ./setup.py install
+<!-- ### Uninstallation
+    python ./setup.py uninstall -->
+### How To Use?
+    loganalyzer <file name>
 ## Capabilities of this analyzer
 
 This analyzer could report many match facts, a list of them are as follows
@@ -27,7 +27,6 @@ This analyzer could report many match facts, a list of them are as follows
 - Kick count
 - Tackle count
 - say count
-
 ### Test Cases
     Under construction...
 
