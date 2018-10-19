@@ -29,7 +29,7 @@ if not_installed != '':
     print('########################')
     print('####### WARNING ########')
     print('########################')
-    print('Some dependencies are not installed .It causes some problems for Lingua Lyrics! : \n')
+    print('Some dependencies are not installed .It causes some problems for LogAnalyzer! : \n')
     print(not_installed + '\n\n')
     print('Read this link for more information: \n')
     print('')
@@ -52,7 +52,7 @@ setup(
     description='Python Script for parsing and analyzing agent2D socer simulation rcl and rcg logs',
     long_description=open("README.md").read(),
     author='Shahryar Bhm & Farzin Negahbani',
-    author_email='shahryarbahmeie@gmail.com',
+    author_email='shahryarbahmeie@gmail.com , farzin.negahbani@gmail.comh',
     url='https://github.com/Farzin-Negahbani/Namira_LogAnalyzer',
     packages=['loganalyzer',],
     entry_points={  # Optional
