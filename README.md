@@ -14,13 +14,19 @@ You just need python 3.x! running on any OS. You can download and install python
     loganalyzer <log file without .rcl or .rcg >
 #### As a Module
     import loganalyzer
+##### Parser
     parser = loganalyzer.Parser('path to log file without .rcl or .rcg')
+##### Game
     game = loganalyzer.Game(parser)
+##### Agent
     left_team_agent_1 = game.left_team.agents[0]
     left_team_agent_1_data = left_team_agent_1.data
+##### Analyzer
     analyzer = loganalyzer.Analyzer(game)
     analyzer.analyze()
+###### Left Team Pass
     left_team_pass = analyzer.pass_l
+
 ## Capabilities of this analyzer
 
 This analyzer could report many match facts, a list of them are as follows
