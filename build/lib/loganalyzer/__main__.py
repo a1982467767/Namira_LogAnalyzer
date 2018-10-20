@@ -41,7 +41,6 @@ def write_to_file(save_path,analyzer):
     f.writelines("used_stamina:"+str(analyzer.used_stamina_l )+os.linesep)
     f.close()
 def main():
-    print("hey1")
     args=parse_args()
     path = args.path
     save_path = args.save_path

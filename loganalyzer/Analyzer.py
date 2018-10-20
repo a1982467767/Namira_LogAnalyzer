@@ -52,7 +52,9 @@ class Analyzer:
             self.pass_status      = 1
             
         elif(self.pass_status == 1 ):
-            
+            get_last_kicker =self.game.get_last_kickers(key) 
+            print('get_last_kicker')
+            print(get_last_kicker)
             if(self.pass_last_kicker == self.game.get_last_kickers(key)[0] and self.game.get_last_kickers(key)[0].data[key]['is_kicked']):
                 self.pass_status = 1
                 self.pass_last_kick_cycle = key

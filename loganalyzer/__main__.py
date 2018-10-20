@@ -47,5 +47,5 @@ def main():
     parser = Parser(path)
     game = Game(parser) 
     analyzer = Analyzer(game)
-    # analyzer.analyze()
+    analyzer.analyze()
     write_to_file(save_path,analyzer)

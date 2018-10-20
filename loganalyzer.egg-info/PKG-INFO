@@ -4,7 +4,7 @@ Version: 1.0
 Summary: Python Script for parsing and analyzing agent2D socer simulation rcl and rcg logs
 Home-page: https://github.com/Farzin-Negahbani/Namira_LogAnalyzer
 Author: Shahryar Bhm & Farzin Negahbani
-Author-email: shahryarbahmeie@gmail.com
+Author-email: shahryarbahmeie@gmail.com , farzin.negahbani@gmail.comh
 License: UNKNOWN
 Description: # Namira LogAnalyzer
         Python Script for parsing and analyzing agent2D socer simulation rcl and rcg logs. This project has been used in [NAMIRA TPAS](https://github.com/Farzin-Negahbani/Namira_TPAS)
@@ -13,12 +13,12 @@ Description: # Namira LogAnalyzer
         ## Getting Started
         
         You just need python 3.x! running on any OS. You can download and install python 3.x from [here](https://www.python.org/downloads/).
-        
-        ### How to Use?
-        
-        For using this package just download the source and place it on your workplace then import it on any python file!
-        
-        
+        ### Installation
+            python ./setup.py install
+        <!-- ### Uninstallation
+            python ./setup.py uninstall -->
+        ### How To Use?
+            loganalyzer <log file without .rcl or .rcg >
         ## Capabilities of this analyzer
         
         This analyzer could report many match facts, a list of them are as follows
@@ -35,9 +35,8 @@ Description: # Namira LogAnalyzer
         - Kick count
         - Tackle count
         - say count
-        
         ### Test Cases
-        Under construction...
+            Under construction...
         
         ## Authors
         

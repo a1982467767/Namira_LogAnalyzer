@@ -10,7 +10,17 @@ You just need python 3.x! running on any OS. You can download and install python
 <!-- ### Uninstallation
     python ./setup.py uninstall -->
 ### How To Use?
-    loganalyzer <file name>
+#### As a Script
+    loganalyzer <log file without .rcl or .rcg >
+#### As a Module
+    import loganalyzer
+    parser = loganalyzer.Parser('path to log file without .rcl or .rcg')
+    game = loganalyzer.Game(parser)
+    left_team_agent_1 = game.left_team.agents[0]
+    left_team_agent_1_data = left_team_agent_1.data
+    analyzer = loganalyzer.Analyzer(game)
+    analyzer.analyze()
+    left_team_pass = analyzer.pass_l
 ## Capabilities of this analyzer
 
 This analyzer could report many match facts, a list of them are as follows
@@ -27,8 +37,8 @@ This analyzer could report many match facts, a list of them are as follows
 - Kick count
 - Tackle count
 - say count
-### Test Cases
-    Under construction...
+<!-- ### Test Cases
+    Under construction... -->
 
 ## Authors
 
