@@ -1,3 +1,7 @@
 *.rcg
 *.rcl
+*.pyc
+dist
+build
+*-info
 Parser Backup
