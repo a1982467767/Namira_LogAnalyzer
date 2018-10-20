@@ -5,6 +5,10 @@ a Tournament Planning and Analyzer Software.
 ## Getting Started
 
 You just need python 3.x! running on any OS. You can download and install python 3.x from [here](https://www.python.org/downloads/).
+### Requierments
+    setuptools
+    shapely
+    pip
 ### Installation
     python ./setup.py install
 <!-- ### Uninstallation

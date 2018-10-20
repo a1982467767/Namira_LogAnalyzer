@@ -3,6 +3,16 @@ import sys
 import platform
 import shutil
 
+# finding os platform
+os_type = platform.system()
+
+if os_type == 'Linux':
+    from setuptools import setup
+    setuptools_available = True
+    print(os_type + " detected!")
+else:
+    print('This script is only work for GNU/Linux or BSD!')
+    sys.exit(1)
 cwd = os.path.abspath(__file__)
 setup_dir = os.path.dirname(cwd)
 
