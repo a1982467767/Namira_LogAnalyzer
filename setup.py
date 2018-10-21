@@ -31,5 +31,5 @@ setup(
             'loganalyzer=loganalyzer.__main__:main',
         ],
     },
-    install_requires=['shapely',]
+    # install_requires=[]
 )

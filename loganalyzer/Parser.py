@@ -1,37 +1,37 @@
 import math
-from shapely.geometry import Point
-from shapely.geometry.polygon import Polygon
-position1   =  Polygon([(26,34),(52,34),(52,20),(26,20)])
-position2   =  Polygon([(26,20),(26,0),(36,0),(36,20)])
-position3   =  Polygon([(26,-20),(26,0),(36,0),(36,-20)])
-position4   =  Polygon([(26,-34),(52,-34),(52,-20),(26,-20)])
-position5   =  Polygon([(36,20),(52,20),(52,-20),(36,-20)])
-position6   =  Polygon([(0,34),(0,-34),(26,-34),(26,34)]) 
-position7   =  Polygon([(-26,34),(-52,34),(-52,20),(-26,20)])
-position8   =  Polygon([(-26,0),(-26,20),(-36,20),(-36,0)])
-position9   =  Polygon([(-26,-20),(-26,0),(-36,0),(-36,-20)])
-position10  =  Polygon([(-26,-34),(-52,-34),(-52,-20),(-26,-20)])
-position11  =  Polygon([(-36,20),(-36,-20),(-52,-20),(-52,20)])
-position12  =  Polygon([(0,34),(-26,34),(-26,-34),(-0,-34)]) 
+# from shapely.geometry import Point
+# from shapely.geometry.polygon import Polygon
+# position1   =  Polygon([(26,34),(52,34),(52,20),(26,20)])
+# position2   =  Polygon([(26,20),(26,0),(36,0),(36,20)])
+# position3   =  Polygon([(26,-20),(26,0),(36,0),(36,-20)])
+# position4   =  Polygon([(26,-34),(52,-34),(52,-20),(26,-20)])
+# position5   =  Polygon([(36,20),(52,20),(52,-20),(36,-20)])
+# position6   =  Polygon([(0,34),(0,-34),(26,-34),(26,34)]) 
+# position7   =  Polygon([(-26,34),(-52,34),(-52,20),(-26,20)])
+# position8   =  Polygon([(-26,0),(-26,20),(-36,20),(-36,0)])
+# position9   =  Polygon([(-26,-20),(-26,0),(-36,0),(-36,-20)])
+# position10  =  Polygon([(-26,-34),(-52,-34),(-52,-20),(-26,-20)])
+# position11  =  Polygon([(-36,20),(-36,-20),(-52,-20),(-52,20)])
+# position12  =  Polygon([(0,34),(-26,34),(-26,-34),(-0,-34)]) 
 
-default_positions = [position1,position2,position3,position4,position5,position6,position7,position8,position9,position10,position11,position12]
+# default_positions = [position1,position2,position3,position4,position5,position6,position7,position8,position9,position10,position11,position12]
 
-def count_element_in_pos(elements,positions=default_positions): # get 2  array of pos and element
-    result=[0 for i in range(len(positions))]
-    for k in range(len(elements)) :
-        point = Point(elements[k][0],elements[k][1])
-        j = 0 
-        while j<len(positions):
-            if positions[j].contains(point):
-                count+=1
-                result[j] +=1
-                break
-            elif positions[j].touches(point):
-                count+=1
-                result[j] +=1
-                break
-            j+=1
-    return result
+# def count_element_in_pos(elements,positions=default_positions): # get 2  array of pos and element
+#     result=[0 for i in range(len(positions))]
+#     for k in range(len(elements)) :
+#         point = Point(elements[k][0],elements[k][1])
+#         j = 0 
+#         while j<len(positions):
+#             if positions[j].contains(point):
+#                 count+=1
+#                 result[j] +=1
+#                 break
+#             elif positions[j].touches(point):
+#                 count+=1
+#                 result[j] +=1
+#                 break
+#             j+=1
+#     return result
 
 
 
