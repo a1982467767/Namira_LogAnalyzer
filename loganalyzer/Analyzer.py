@@ -27,18 +27,22 @@ class Analyzer:
         
     def check_shoot(self, key):
         
-        if(key not in self.play_on_cycles):
-            self.shoot_status = 0      
-        elif( self.shoot_status == 0 and (self.game.ball_pos[key]['Vx']**2 + self.game.ball_pos[key]['Vy']**2)** 0.5  > 2.5 ):
-            kickers = self.game.get_kickers(key)
+        # print(self.play_on_cycles)
+        if key in self.game.ball_pos:
+            if(key not in self.play_on_cycles):
+                self.shoot_status = 0      
+            elif( self.shoot_status == 0 and (self.game.ball_pos[key]['Vx']**2 + self.game.ball_pos[key]['Vy']**2)** 0.5  > 2.5 ):
             
-            if(len(kickers)>0 and kickers[0].team.name == self.game.right_team.name and math.hypot(kickers[0].data[key]['x']+52.6,kickers[0].data[key]['y'] )< 20):
-                print("Shoooooooot R", key, kickers[0].number)
-                self.shoot_status =1
-                
-            elif(len(kickers)>0 and kickers[0].team.name == self.game.left_team.name and  math.hypot(kickers[0].data[key]['x']-52.6,kickers[0].data[key]['y'] ) < 20):
-                print("Shoooooooot L", key, kickers[0].number)
-                self.shoot_status =1
+            
+                kickers = self.game.get_kickers(key)
+
+                if(len(kickers)>0 and kickers[0].team.name == self.game.right_team.name and math.hypot(kickers[0].data[key]['x']+52.6,kickers[0].data[key]['y'] )< 20):
+                    print("Shoooooooot R", key, kickers[0].number)
+                    self.shoot_status =1
+
+                elif(len(kickers)>0 and kickers[0].team.name == self.game.left_team.name and  math.hypot(kickers[0].data[key]['x']-52.6,kickers[0].data[key]['y'] ) < 20):
+                    print("Shoooooooot L", key, kickers[0].number)
+                    self.shoot_status =1
                 
       
     def check_pass(self, key):
@@ -53,8 +57,8 @@ class Analyzer:
 
             elif(self.pass_status == 1 ):
                 get_last_kicker =self.game.get_last_kickers(key) 
-                print('get_last_kicker')
-                print(get_last_kicker)
+                # print('get_last_kicker')
+                # print(get_last_kicker)
                 if(self.pass_last_kicker == self.game.get_last_kickers(key)[0] and self.game.get_last_kickers(key)[0].data[key]['is_kicked']):
                     self.pass_status = 1
                     self.pass_last_kick_cycle = key
