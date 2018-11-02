@@ -94,18 +94,13 @@ class Game:
 
                 elif(agent.data[cycle]['last_tackle_cycle'] == m or agent.data[cycle]['lastkickCycle'] == m):
                     kickers.append(agent)
-            else:
-                print(cycle)
-
         return kickers   
     
     def get_play_on_cycles(self):
         play_on_cycles = []
-        print(type(self.play_modes))
         cycles = list(self.play_modes.keys())
         for i in range(len(cycles)):
             if(self.play_modes[cycles[i]] == 'play_on'):
-                print(cycles[i+1])
                 play_on_cycles+=range(cycles[i],cycles[i+1])
         return play_on_cycles
     

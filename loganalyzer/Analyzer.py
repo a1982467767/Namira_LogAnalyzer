@@ -14,15 +14,15 @@ class Analyzer:
         #right TEAM
         self.pass_r = 0
         self.intercept_r = 0
-        self.all_shoot_r = 0
         self.on_target_shoot_r = 0
+        self.off_target_shoot_r = 0
         self.possesion_r = 0
         self.used_stamina_r = 0
         #left TEAM
         self.pass_l = 0
         self.intercept_l = 0
-        self.all_shoot_l = 0
         self.on_target_shoot_l = 0
+        self.off_target_shoot_l = 0
         self.possesion_l = 0
         self.used_stamina_l = 0
 
@@ -49,7 +49,7 @@ class Analyzer:
         if key in self.game.ball_pos:
             if(key not in self.play_on_cycles):
                 self.shoot_status = 0
-            elif( self.shoot_status == 0 and (self.game.ball_pos[key]['Vx']**2 + self.game.ball_pos[key]['Vy']**2)** 0.5  > 2.2 ):
+            elif( self.shoot_status == 0 and (self.game.ball_pos[key]['Vx']**2 + self.game.ball_pos[key]['Vy']**2)** 0.5  > 2.0 ):
                 
                 
                 kickers = self.game.get_kickers(key)
@@ -57,18 +57,23 @@ class Analyzer:
                 if(len(kickers)>0 and kickers[0].team.name == self.game.right_team.name and math.hypot(kickers[0].data[key]['x']+51.6,kickers[0].data[key]['y'] )< 20 and self.game.ball_pos[key]['Vx']   ):
                     ball1= (self.game.ball_pos[key-1]['x'], self.game.ball_pos[key-1]['y'])
                     ball2= (self.game.ball_pos[key]['x'], self.game.ball_pos[key]['y'])
-                    (x,y) = Analyzer.line_intersection((ball1,ball2), ((52.6,1),(52.6,0)) )
-                    if(y> -12 and y< 12 ):
-                        print("Shoooooooot R", key, kickers[0].number)
+                    (x,y) = Analyzer.line_intersection((ball1,ball2), ((-52.6,1),(-52.6,0)) )
+                    if(abs(y)<9 ):
+                        print( "In Target Shoooooooot", key , kickers[0].number , self.game.right_team.name)
                         self.on_target_shoot_r +=1
-
+                    elif(abs(y)<16 and abs(y)>9):
+                        print( "Out Target Shoooooooot", key ,kickers[0].number , self.game.right_team.name)
+                        self.off_target_shoot_r +=1
                 elif(len(kickers)>0 and kickers[0].team.name == self.game.left_team.name and  math.hypot(kickers[0].data[key]['x']-51.6,kickers[0].data[key]['y'] ) < 20 and self.game.ball_pos[key]['Vx']):
                     ball1= (self.game.ball_pos[key-1]['x'], self.game.ball_pos[key-1]['y'])
                     ball2= (self.game.ball_pos[key]['x'], self.game.ball_pos[key]['y'])
                     (x,y) = Analyzer.line_intersection( (ball1,ball2), ((52.6,1),(52.6,0)) )
-                    if(y> -12 and y< 12 ):
-                        print("Shoooooooot L", key, kickers[0].number)
+                    if(abs(y)<9 ):
+                        print( "In Target Shoooooooot",key, kickers[0].number , self.game.left_team.name)
                         self.on_target_shoot_l +=1
+                    elif(abs(y)<16 and abs(y)>9):
+                        print( "Out Target Shoooooooot",key, kickers[0].number , self.game.left_team.name)
+                        self.off_target_shoot_l+=1
 
 
     def check_pass(self, key):

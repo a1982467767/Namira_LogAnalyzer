@@ -25,21 +25,23 @@ def write_to_file(save_path,analyzer):
     #results
     #right TEAM
     f.writelines("Right Team"+os.linesep)
+    f.writelines(analyzer.game.right_team.name+os.linesep)
     f.writelines("pass:"+str(analyzer.pass_r )+os.linesep)
     f.writelines("intercept:"+str(analyzer.intercept_r )+os.linesep)
     f.writelines("on_target_shoot:"+str(analyzer.on_target_shoot_r )+os.linesep)
     f.writelines("off_target_shoot:"+str(analyzer.off_target_shoot_r )+os.linesep)
-    f.writelines("possesion:"+str(analyzer.possesion_r )+os.linesep)
-    f.writelines("used_stamina:"+str(analyzer.used_stamina_r )+os.linesep)
+    # f.writelines("possesion:"+str(analyzer.possesion_r )+os.linesep)
+    # f.writelines("used_stamina:"+str(analyzer.used_stamina_r )+os.linesep)
     #left TEAM
     f.writelines(os.linesep)
     f.writelines("Left Team"+os.linesep)
+    f.writelines(analyzer.game.left_team.name+os.linesep)
     f.writelines("pass:"+str(analyzer.pass_l )+os.linesep)
     f.writelines("intercept:"+str(analyzer.intercept_l )+os.linesep)
     f.writelines("on_target_shoot:"+str(analyzer.on_target_shoot_l )+os.linesep)
     f.writelines("off_target_shoot:"+str(analyzer.off_target_shoot_l )+os.linesep)
-    f.writelines("possesion:"+str(analyzer.possesion_l )+os.linesep)
-    f.writelines("used_stamina:"+str(analyzer.used_stamina_l )+os.linesep)
+    # f.writelines("possesion:"+str(analyzer.possesion_l )+os.linesep)
+    # f.writelines("used_stamina:"+str(analyzer.used_stamina_l )+os.linesep)
     f.close()
 def main():
     args=parse_args()
