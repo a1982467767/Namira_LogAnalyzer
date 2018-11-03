@@ -31,21 +31,16 @@ This analyzer could report many match facts, a list of them are as follows
     loganalyzer --path <log file without .rcl or .rcg >
 #### As a Module
     import loganalyzer
-    import loganalyzer.Parser as Parser
-    import loganalyzer.Game as Game
-    import loganalyzer.Analyzer as Analyzer
+    from loganalyzer import Parser
+    from loganalyzer import Game
+    from loganalyzer import Analyzer
     parser = Parser('path to log file without .rcl or .rcg')
     game = Game(parser)
-##### Analyzer
     analyzer = Analyzer(game)
     analyzer.analyze()
-###### Left Team Pass
-    analyzer.pass_l
-###### Left Team In Target Shoot
-    analyzer.in_target_shoot_l
-###### Agent Data
-    # number 1 agent
-    left_team_agent_1 = game.left_team.agents[0].data
+    left_team_pass = analyzer.pass_l 
+    left_team_in_target_shoot = analyzer.in_target_shoot_l 
+    left_team_agent_1 = game.left_team.agents[0].data 
 ## Authors
 
 * **[Farzin Negahbani](https://github.com/Farzin-Negahbani)** 
