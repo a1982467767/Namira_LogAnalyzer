@@ -26,24 +26,26 @@ This analyzer could report many match facts, a list of them are as follows
 - Kick count
 - Tackle count
 - say count
-### Test Cases
+### How to Use
 #### As a Script
     loganalyzer --path <log file without .rcl or .rcg >
 #### As a Module
     import loganalyzer
-##### Parser
-    parser = loganalyzer.Parser('path to log file without .rcl or .rcg')
-##### Game
-    game = loganalyzer.Game(parser)
-##### Agent
-    left_team_agent_1 = game.left_team.agents[0]
-    left_team_agent_1_data = left_team_agent_1.data
+    import loganalyzer.Parser as Parser
+    import loganalyzer.Game as Game
+    import loganalyzer.Analyzer as Analyzer
+    parser = Parser('path to log file without .rcl or .rcg')
+    game = Game(parser)
 ##### Analyzer
-    analyzer = loganalyzer.Analyzer(game)
+    analyzer = Analyzer(game)
     analyzer.analyze()
 ###### Left Team Pass
-    left_team_pass = analyzer.pass_l
-
+    analyzer.pass_l
+###### Left Team In Target Shoot
+    analyzer.in_target_shoot_l
+###### Agent Data
+    # number 1 agent
+    left_team_agent_1 = game.left_team.agents[0].data
 ## Authors
 
 * **[Farzin Negahbani](https://github.com/Farzin-Negahbani)** 

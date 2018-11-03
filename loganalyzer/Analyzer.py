@@ -14,14 +14,14 @@ class Analyzer:
         #right TEAM
         self.pass_r = 0
         self.intercept_r = 0
-        self.on_target_shoot_r = 0
+        self.in_target_shoot_r = 0
         self.off_target_shoot_r = 0
         self.possesion_r = 0
         self.used_stamina_r = 0
         #left TEAM
         self.pass_l = 0
         self.intercept_l = 0
-        self.on_target_shoot_l = 0
+        self.in_target_shoot_l = 0
         self.off_target_shoot_l = 0
         self.possesion_l = 0
         self.used_stamina_l = 0
@@ -60,7 +60,7 @@ class Analyzer:
                     (x,y) = Analyzer.line_intersection((ball1,ball2), ((-52.6,1),(-52.6,0)) )
                     if(abs(y)<9 ):
                         print( "In Target Shoooooooot", key , kickers[0].number , self.game.right_team.name)
-                        self.on_target_shoot_r +=1
+                        self.in_target_shoot_r +=1
                     elif(abs(y)<16 and abs(y)>9):
                         print( "Out Target Shoooooooot", key ,kickers[0].number , self.game.right_team.name)
                         self.off_target_shoot_r +=1
@@ -70,7 +70,7 @@ class Analyzer:
                     (x,y) = Analyzer.line_intersection( (ball1,ball2), ((52.6,1),(52.6,0)) )
                     if(abs(y)<9 ):
                         print( "In Target Shoooooooot",key, kickers[0].number , self.game.left_team.name)
-                        self.on_target_shoot_l +=1
+                        self.in_target_shoot_l +=1
                     elif(abs(y)<16 and abs(y)>9):
                         print( "Out Target Shoooooooot",key, kickers[0].number , self.game.left_team.name)
                         self.off_target_shoot_l+=1
