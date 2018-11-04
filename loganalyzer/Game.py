@@ -13,7 +13,6 @@ class Game:
         self.play_modes   = {}
         self.ball_pos    = {}
         self.set_teams_data()
-        ##'''playerTypes[i]={'stamina':,...}'''
         
     def set_play_modes(self,cycle,playMode):
         self.play_modes[cycle]=playMode
@@ -45,31 +44,6 @@ class Game:
             return self.left_team.agents[number-1].get_data()
         else:
             return self.right_team.agents[number-1].get_data()
-        
-        
-#    def get_last_kickers(self, cycle):
-#        m = 0
-#        kickers = []
-#        for agent in (self.left_team.agents+self.right_team.agents):
-#            if(agent.data[cycle]['last_tackle_cycle']>m ):
-#                m=agent.data[cycle]['last_tackle_cycle']
-#                kickers.clear()
-#                kickers.append(agent)
-#            
-#            elif(agent.data[cycle]['last_tackle_cycle'] == m):
-#                kickers.append(agent)
-#            
-#            if(agent.data[cycle]['lastkickCycle']>m ):
-#                m=agent.data[cycle]['lastkickCycle']
-#                kickers.clear()
-#                kickers.append(agent)
-#                
-#            elif(agent.data[cycle]['lastkickCycle'] == m):
-#                kickers.append(agent)
-#                
-#        return kickers   
-            
-#        
             
     def get_kickers(self, cycle):
         kickers = []

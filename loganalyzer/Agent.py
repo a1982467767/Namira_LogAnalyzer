@@ -15,7 +15,6 @@ class Agent:
         
 
     def get_data(self):
-        ''' data  = {cycle: {'is_kicked': , 'is_tackled':,'x':,'y':,'Vx':,'Vy':,}}'''
         return self.data
        
     def set_data(self,\
@@ -96,7 +95,6 @@ class Agent:
         agent_type   = game.agent_types[agent_type]
         kick_radius  = agent_type['player_size']+agent_type['kickable_margin']
         dist        = (pow((agent_pos[0]- ball_pos[0]),2) + pow((agent_pos[1]- ball_pos[1]),2) )** 0.5
-        #if(kick_radius >= dist-game.server_prama['ball_size']):
         if(kick_radius >= dist-0.35):
             return True
         else:
