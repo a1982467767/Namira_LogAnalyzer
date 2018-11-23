@@ -96,12 +96,15 @@ class Parser:
                 team = temp[0].split(' ')[1].replace("_"+number,'')
                 words = line.split(':')[1].split(')')
                 for word in words:
-                    if  'kick' in word:
+                    if  '(kick' in word:
                         action = 'kick'
-                        degree = word.split(' ')[3]
-                        degree  = float(degree)
-                        cycle_data = {'team':team,'number':int(number),'action':action,'degree':degree}
-                        break
+                        try:
+                            degree = word.split(' ')[3]
+                            degree  = float(degree)
+                            cycle_data = {'team':team,'number':int(number),'action':action,'degree':degree}
+                            break
+                        except:
+                            print("error")
                     elif 'tackle' in word:
                         action = 'tackle'
                         cycle_data = {'team':team,'number':int(number),'action':action}

@@ -74,7 +74,9 @@ class Game:
         play_on_cycles = []
         cycles = list(self.play_modes.keys())
         for i in range(len(cycles)):
-            if(self.play_modes[cycles[i]] == 'play_on'):
+            if (i == len(cycles)-1):
+                play_on_cycles+=range(cycles[i],6000)
+            elif(self.play_modes[cycles[i]] == 'play_on'):
                 play_on_cycles+=range(cycles[i],cycles[i+1])
         return play_on_cycles
     

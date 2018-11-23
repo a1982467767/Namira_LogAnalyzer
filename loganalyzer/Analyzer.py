@@ -48,7 +48,7 @@ class Analyzer:
         if key in self.game.ball_pos:
             if(key not in self.play_on_cycles):
                 self.shoot_status = 0
-            elif( self.shoot_status == 0 and (self.game.ball_pos[key]['Vx']**2 + self.game.ball_pos[key]['Vy']**2)** 0.5  > 2.2 ):
+            elif( self.shoot_status == 0 and (self.game.ball_pos[key]['Vx']**2 + self.game.ball_pos[key]['Vy']**2)** 0.5  > 2.0 ):
                 
                 
                 kickers = self.game.get_kickers(key)
